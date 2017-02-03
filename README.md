@@ -1,5 +1,7 @@
 # release-zalgo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/novemberborn/release-zalgo.svg)](https://greenkeeper.io/)
+
 Helps you write code with promise-like chains that can run both synchronously
 and asynchronously.
 
