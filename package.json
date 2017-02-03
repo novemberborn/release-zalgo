@@ -1,6 +1,6 @@
 {
   "name": "release-zalgo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Helps you write code with promise-like chains that can run both synchronously and asynchronously",
   "main": "index.js",
   "files": [
