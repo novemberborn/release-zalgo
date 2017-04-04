@@ -36,7 +36,7 @@ import unwrapSync from '../lib/unwrapSync'
   unwrapRejected.title = (_, thenable) => `throws reason when unwrapping a rejected thenable ${typeof thenable}`
 
   const unwrapResolved = (t, thenable) => {
-    const expected = Symbol()
+    const expected = Symbol('')
     thenable.then = resolve => {
       resolve(expected)
     }
@@ -46,7 +46,7 @@ import unwrapSync from '../lib/unwrapSync'
   unwrapResolved.title = (_, thenable) => `returns value when unwrapping a fulfilled thenable ${typeof thenable}`
 
   const unwrapRecursive = (t, thenable) => {
-    const expected = Symbol()
+    const expected = Symbol('')
     const recursive = {
       then (resolve) {
         resolve(expected)
@@ -81,10 +81,10 @@ import unwrapSync from '../lib/unwrapSync'
   throwsForAsync.title = (_, thenable) => `throws if thenable ${typeof thenable} is asynchronous`
 
   const ignoresRepeats = (t, thenable) => {
-    const expected = Symbol()
+    const expected = Symbol('')
     thenable.then = (resolve, reject) => {
       resolve(expected)
-      resolve(Symbol())
+      resolve(Symbol(''))
       reject(new Error())
     }
 

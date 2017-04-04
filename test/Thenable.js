@@ -14,7 +14,7 @@ test('consumes exceptions', t => {
 
 test('unwraps executor return values', t => {
   t.plan(1)
-  const expected = Symbol()
+  const expected = Symbol('')
   new Thenable(() => {
     return new Thenable(() => expected)
   }).then(actual => t.true(actual === expected))
@@ -22,7 +22,7 @@ test('unwraps executor return values', t => {
 
 test('then() invokes onFulfilled callback if fulfilled', t => {
   t.plan(1)
-  const expected = Symbol()
+  const expected = Symbol('')
   new Thenable(() => expected)
     .then(actual => t.true(actual === expected))
 })
@@ -68,7 +68,7 @@ test('catch() returns its thenable if called but fulfilled', t => {
 
 test('then() returns new thenable, fulfilled with the result of the onFulfilled callback', t => {
   t.plan(2)
-  const expected = Symbol()
+  const expected = Symbol('')
 
   const thenable = new Thenable(() => {})
   const other = thenable.then(() => expected)
@@ -88,7 +88,7 @@ test('then() returns new thenable, rejected  with the reason if the onFulfilled 
 
 test('then() returns new thenable, fulfilled with the result of the onRejected callback', t => {
   t.plan(2)
-  const expected = Symbol()
+  const expected = Symbol('')
 
   const thenable = new Thenable(() => { throw new Error() })
   const other = thenable.then(null, () => expected)
@@ -108,7 +108,7 @@ test('then() returns new thenable, rejected  with the reason if the onRejected c
 
 test('catch() returns new thenable, fulfilled with the result of the onRejected callback', t => {
   t.plan(2)
-  const expected = Symbol()
+  const expected = Symbol('')
 
   const thenable = new Thenable(() => { throw new Error() })
   const other = thenable.catch(() => expected)
@@ -128,7 +128,7 @@ test('catch() returns new thenable, rejected  with the reason if the onRejected 
 
 test('repeated calls to then() provide the same value to the callbacks', t => {
   {
-    const expected = Symbol()
+    const expected = Symbol('')
     const thenable = new Thenable(() => expected)
     thenable.then(actual => {
       t.true(actual === expected)
@@ -142,7 +142,7 @@ test('repeated calls to then() provide the same value to the callbacks', t => {
     const thenable = new Thenable(() => { throw expected })
     thenable.then(null, actual => {
       t.true(actual === expected)
-      return Symbol()
+      return Symbol('')
     })
     thenable.then(null, actual => t.true(actual === expected))
   }
@@ -153,7 +153,7 @@ test('repeated calls to catch() provide the same value to the callbacks', t => {
   const thenable = new Thenable(() => { throw expected })
   thenable.catch(actual => {
     t.true(actual === expected)
-    return Symbol()
+    return Symbol('')
   })
   thenable.catch(actual => t.true(actual === expected))
 })

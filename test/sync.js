@@ -28,7 +28,7 @@ test('run() forwards arguments to the executor', t => {
   const { zalgo } = t.context
   t.plan(1)
 
-  const expected = [Symbol(), Symbol()]
+  const expected = [Symbol(''), Symbol('')]
   zalgo.run({
     sync (...actual) {
       t.deepEqual(actual, expected)
@@ -39,7 +39,7 @@ test('run() forwards arguments to the executor', t => {
 test('run()’s thenable is fulfilled with the executor’s return value', t => {
   const { zalgo } = t.context
 
-  const expected = Symbol()
+  const expected = Symbol('')
   const actual = unwrapSync(zalgo.run({
     sync () {
       return expected
@@ -83,7 +83,7 @@ test('run()’s thenable is rejected if the executor returns a promise', t => {
 test('all() returns a thenable that is fulfilled when all inputs are', t => {
   const { zalgo } = t.context
 
-  const expected = [Symbol(), Symbol()]
+  const expected = [Symbol(''), Symbol('')]
   const thenable = zalgo.all([expected[0], new Thenable(() => expected[1])])
 
   t.true(thenable instanceof Thenable)
@@ -95,7 +95,7 @@ test('all() returns a thenable that is rejected with the same reason as the firs
   const { zalgo } = t.context
 
   const expected = new Error()
-  const thenable = zalgo.all([Symbol(), new Thenable(() => Symbol()), new Thenable(() => { throw expected })])
+  const thenable = zalgo.all([Symbol(''), new Thenable(() => Symbol('')), new Thenable(() => { throw expected })])
 
   t.true(thenable instanceof Thenable)
   const actual = t.throws(() => unwrapSync(thenable))
@@ -117,7 +117,7 @@ test('all() returns a thenable that is rejected if an input is a promise', t => 
 test('returns() returns a thenable that is fulfilled with the value', t => {
   const { zalgo } = t.context
 
-  const expected = Symbol()
+  const expected = Symbol('')
   const thenable = zalgo.returns(expected)
 
   t.true(thenable instanceof Thenable)
