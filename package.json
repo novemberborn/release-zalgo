@@ -35,7 +35,7 @@
   "devDependencies": {
     "@novemberborn/as-i-preach": "^9.0.0",
     "ava": "^0.19.0",
-    "coveralls": "^2.11.15",
+    "codecov": "^2.2.0",
     "nyc": "^11.0.0"
   },
   "nyc": {
