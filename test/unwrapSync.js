@@ -17,7 +17,7 @@ import unwrapSync from '../lib/unwrapSync'
   fn.then = true
   test('function', asIs, fn, 'without .then being a function')
   test('object', asIs, {}, 'without .then')
-  test('object', asIs, { then: true }, 'without .then being a function')
+  test('object', asIs, {then: true}, 'without .then being a function')
   test('array', asIs, [], 'without .then')
   const arr = []
   arr.then = true
