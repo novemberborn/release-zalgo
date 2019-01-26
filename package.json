@@ -18,9 +18,6 @@
     "type": "git",
     "url": "git+https://github.com/novemberborn/release-zalgo.git"
   },
-  "keywords": [
-    "babel"
-  ],
   "author": "Mark Wubben (https://novemberborn.net/)",
   "license": "ISC",
   "bugs": {
