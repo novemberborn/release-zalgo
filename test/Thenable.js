@@ -8,8 +8,8 @@ test('immediately invokes the executor', t => {
   new Thenable(() => t.pass())
 })
 
-test('consumes exceptions', t => {
-  t.notThrows(new Thenable(() => {}))
+test('consumes exceptions', async t => {
+  await t.notThrowsAsync(new Thenable(() => {})) // eslint-disable-line ava/use-t-well
 })
 
 test('unwraps executor return values', t => {
