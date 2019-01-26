@@ -12,9 +12,7 @@
   },
   "scripts": {
     "lint": "as-i-preach",
-    "test": "ava",
-    "posttest": "as-i-preach",
-    "coverage": "nyc npm test"
+    "test": "npm run -s lint && nyc ava"
   },
   "repository": {
     "type": "git",
